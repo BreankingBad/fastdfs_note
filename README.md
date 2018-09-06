@@ -1,7 +1,7 @@
 # fastdfs_note
 fastdfs 分布式文件系统部署笔记
 
-1、按照https://zhuanlan.zhihu.com/p/35728079，对两台云服务器进行部署，一台当tracker和storage,另一台只当storage
+1、按照https://zhuanlan.zhihu.com/p/35728079 ,对两台云服务器进行部署，一台当tracker和storage,另一台只当storage
 
 2、因为我这里是两台服务器分别存放不同文件，所以将一台storage配置为group_name=group1，另一台storage配置为group_name=group2
 
