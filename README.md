@@ -5,7 +5,7 @@ fastdfs 分布式文件系统部署笔记
 
 2、因为我这里是两台服务器分别存放不同文件，所以将一台storage配置为group_name=group1，另一台storage配置为group_name=group2
 
-3、注意，相关配置修改后，需重启相应服务，不行的话重启所有tracker/storage, 命令为/etc/init.d/fdfs_storaged start|restart
+3、注意，相关配置修改后，需重启相应服务(需要等几秒钟查看服务是否正常)，不行的话重启所有tracker/storage, 命令为/etc/init.d/fdfs_storaged start|restart
   和 /etc/init.d/fdfs_trackerd start|restart
   
 4、注意tracker的配置reserved_storage_space为实际情况的大小，避免某台服务器空间不够没办法后续测试
