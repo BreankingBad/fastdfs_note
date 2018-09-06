@@ -10,21 +10,21 @@ fastdfs 分布式文件系统部署笔记
   
 4、注意tracker的配置reserved_storage_space为实际情况的大小，避免某台服务器空间不够没办法后续测试
 
-# 用于设置系统或其他应用程序的存储空间。
-# 当剩余的空间小于reserved_storage_space设置的空间
-# 该group组就无法再上传其它文件
+\# 用于设置系统或其他应用程序的存储空间。
+\# 当剩余的空间小于reserved_storage_space设置的空间
+\# 该group组就无法再上传其它文件
 reserved_storage_space = 10%
 
 5、因为tracker默认选择最大空闲空间的storage进行上传，而我想测试两台storage服务都可用，所以设置tracker配置store_lookup=1，store_group=想测试
 的storage对应的group名
 
-# 上传文件时卷组的选择方式
-# 0: 轮循
-# 1: 指定
-# 2: 负载均衡, 会选择最大空闲的卷组去上传文件
+\# 上传文件时卷组的选择方式
+\# 0: 轮循
+\# 1: 指定
+\# 2: 负载均衡, 会选择最大空闲的卷组去上传文件
 store_lookup=2
  
-# 如果上面的设置为 1, 就必须设置一个group组
+\# 如果上面的设置为 1, 就必须设置一个group组
 store_group=group2
 
 6、如果运行/上传文件出错，务必看log信息，cat /fastdfs/storage/logs/storaged.log 或 cat /fastdfs/storage/logs/trackerd.log
@@ -34,15 +34,15 @@ fdfs_monitor /etc/fdfs/client.conf
 
 之前遇到一个服务器一直是wait_async状态，导致不能正常上传文件，解决办法：
 
-# 从集群中删除storage
+\# 从集群中删除storage
 fdfs_monitor /etc/fdfs/client.conf delete group1 10.1.8.101
  
-# 删除数据文件夹
+\# 删除数据文件夹
 rm -rf /fastdfs/storage/data
  
-# 重启storage
+\# 重启storage
 fdfs_storaged /etc/fdfs/storage.conf
  
-# 重新查状态(tracker)
+\# 重新查状态(tracker)
 fdfs_monitor /etc/fdfs/client.conf
 
