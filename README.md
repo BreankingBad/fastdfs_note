@@ -27,9 +27,11 @@ store_lookup=2<br>
 \# 如果上面的设置为 1, 就必须设置一个group组<br>
 store_group=group2<br>
 
-6、如果运行/上传文件出错，务必看log信息，cat /fastdfs/storage/logs/storaged.log 或 cat /fastdfs/storage/logs/trackerd.log
+6、上传测试：    /usr/bin/fdfs_upload_file /etc/fdfs/client.conf /usr/include/stdio.h
 
-7、查看storage的状态是否为active:    
+7、如果运行/上传文件出错，务必看log信息，cat /fastdfs/storage/logs/storaged.log 或 cat /fastdfs/storage/logs/trackerd.log
+
+8、查看storage的状态是否为active:    
 fdfs_monitor /etc/fdfs/client.conf
 
 之前遇到一个服务器一直是wait_async状态，导致不能正常上传文件，解决办法：
