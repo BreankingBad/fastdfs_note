@@ -49,5 +49,6 @@ fdfs_storaged /etc/fdfs/storage.conf<br>
 fdfs_monitor /etc/fdfs/client.conf<br>
 
 9、查看已经上传的文件列表：
+
 不能直接查看，可以看/fastdfs/storage/data/sync/目录下的binlog文件，里面有文件记录，最下面的是最近上传的文件
 
